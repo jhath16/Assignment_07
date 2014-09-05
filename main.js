@@ -1108,6 +1108,8 @@ var items = [{
 
 
 //Question #1
+
+
 var avgPrice = items.map(function(item){
   return item.price;
 }).reduce(function(a,b){
@@ -1115,8 +1117,57 @@ var avgPrice = items.map(function(item){
 })/items.length;
 console.log("The average price is $" +avgPrice.toFixed(2));
 
+
 //Question #2
+
+
 var objects = items.filter(function(item){
   if(item.price >= 14 && item.price <=18)
     {return item}});
 console.log("Items that cost between $14.00 USD and $18.00 USD:", objects );
+
+//Question #3
+
+
+items.filter(function(item){
+  if(item.currency_code ==="GBP")
+    {return item}}).forEach(function(i){
+      console.log(i.title)
+    });
+
+
+//Question #4
+
+
+items.filter(function(i){
+  if(i.materials.indexOf("wood") >= 0) {
+    return i;
+  }
+}).forEach(function(i){
+  console.log(i.title + " is made of wood");
+});
+
+
+//Question #5
+
+
+items.filter(function(i){
+  if(i.materials.length>=8) {
+    return i;
+  }
+}).forEach(function(i){
+  console.log(i.title + " has " + i.materials.length + " materials:");
+  i.materials.forEach(function(i){
+    console.log(i);
+  });
+});
+
+
+//Question #6
+
+
+console.log(items.filter(function(i){
+  if(i.who_made == "i_did") {
+    return i;
+  }
+}).length + " were made by their sellers");
